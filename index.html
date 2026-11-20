@@ -12,7 +12,11 @@
     <header class="header">
         <a href="#" class="logo">Nikhil.</a>
 
-        <nav class="navbar">
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">
+            <i class="bx bx-menu" aria-hidden="true"></i>
+        </button>
+
+        <nav class="navbar" id="site-navigation" aria-label="Main navigation">
             <a href="#" class="active">Home</a>    
             <a href="#about">About</a>    
             <a href="#services">Services</a>    
@@ -48,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/aboutme.jpg">
+                    <img src="images/aboutme.jpg" alt="Nikhil Gandhi">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
@@ -57,25 +61,25 @@
                         Structures and Algorithms (DSA). Eager to tackle challenges and explore new technologies, particularly in web
                         development. Open to connecting and discussing tech opportunities and insights.
                     </p>
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <div class="tab-titles" role="tablist" aria-label="About information">
+                        <button class="tab-links active-link" id="skills-tab" type="button" role="tab" aria-selected="true" aria-controls="skills">Skills</button>
+                        <button class="tab-links" id="experience-tab" type="button" role="tab" aria-selected="false" aria-controls="experience">Experience</button>
+                        <button class="tab-links" id="education-tab" type="button" role="tab" aria-selected="false" aria-controls="education">Education</button>
                     </div>
-                    <div class="tab-contents active-tab" id="skills">
+                    <div class="tab-contents active-tab" id="skills" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
                         <ul>
                             <li><span>Front-end</span><br>Figma, HTML, CSS, Bootstrap, JavaScript</li>
                             <li><span>Programming Languages</span><br>C, Java, MySQL, Python</li>
                             <li><span>Databases</span><br>SQL, MongoDB</li>
                         </ul>
                     </div>
-                    <div class="tab-contents" id="experience">
+                    <div class="tab-contents" id="experience" role="tabpanel" aria-labelledby="experience-tab" tabindex="0" hidden>
                         <ul>
                             <li><span>Cloud Intern (12/2023 - 01/2024)</span><br>Developed a strong foundation in Cloud Services, deploying VMs and managing resources on Microsoft Azure, along with hands-on experience in Power BI for data visualization.</li>
                             
                         </ul>
                     </div>
-                    <div class="tab-contents" id="education">
+                    <div class="tab-contents" id="education" role="tabpanel" aria-labelledby="education-tab" tabindex="0" hidden>
                         <ul>
                             <li><span>Bachelors in Computer Engineering (2021 - 2025)</span><br>NBN SINHGAD TECHNICAL INSTITUTE CAMPUS, PUNE</li>
                             <li><span>Higher Secondary Education (2021)</span><br>SANJAY GHODAWAT JUNIOR COLLEGE, ATIGRE </li>
@@ -137,7 +141,7 @@
         <div class="project">
         
             <div class="project-image">
-                <img src="https://www.cidaas.com/wp-content/uploads/2023/12/Digitale-Identitatsprufung-Header-01-2048x1590-1-1024x795.webp" alt="Project 1">
+                <img src="https://www.cidaas.com/wp-content/uploads/2023/12/Digitale-Identitatsprufung-Header-01-2048x1590-1-1024x795.webp" alt="Digital identity verification project" loading="lazy">
             </div>
         
             <div class="project-info">
@@ -157,7 +161,7 @@
         <div class="project">
             
             <div class="project-image">
-                <img src="images/recognition.png" class="img2" alt="Project 2">
+                <img src="images/recognition.png" class="img2" alt="Real-time shape detection project" loading="lazy">
             </div>
 
             <div class="project-info">
@@ -177,7 +181,7 @@
         <div class="project">
             
             <div class="project-image">
-                <img src="images/PowerBI__1_-removebg-preview.png" alt="Project 3">
+                <img src="images/PowerBI__1_-removebg-preview.png" alt="Banking analytics dashboard project" loading="lazy">
             </div>
             
             <div class="project-info">
@@ -196,7 +200,7 @@
         <div class="project">
             
             <div class="project-image">
-                <img src="images/Geoweather-removebg-preview.png" alt="Project 4">
+                <img src="images/Geoweather-removebg-preview.png" alt="GeoWeather project" loading="lazy">
             </div>
             
             <div class="project-info">
@@ -221,10 +225,11 @@
     <div class="contact-container">
         <!-- Contact Form -->
         <form action="https://script.google.com/macros/s/AKfycbz8JquJr-EBF4WZkMFCGiI6-2HcfSy6G9kU3dgWYnGv0QlrsE0rKZKR8ntfKt-2Un5E/exec" method="POST" class="contact-form" name="contact-form">
-            <input type="text" name="Name" placeholder="Your Name" required>
-            <input type="email" name="Email" placeholder="Your Email" required>
-            <input name="Message" rows="5" placeholder="Your Message" required ></input>
+            <input type="text" name="Name" placeholder="Your Name" autocomplete="name" required>
+            <input type="email" name="Email" placeholder="Your Email" autocomplete="email" required>
+            <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit" id="submit">Send Message</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
         </form>
 
         <!-- Social Links -->
@@ -251,41 +256,89 @@
     </footer>
 
     <script>
-        var tablinks= document.getElementsByClassName("tab-links");
-        var tabcontents= document.getElementsByClassName("tab-contents");
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link");
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.navbar');
+
+        function closeNavigation() {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Open navigation');
+            menuToggle.innerHTML = '<i class="bx bx-menu" aria-hidden="true"></i>';
+            navigation.classList.remove('is-open');
         }
 
-        const filled= document.querySelector('.filled');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+            menuToggle.innerHTML = `<i class="bx ${isOpen ? 'bx-menu' : 'bx-x'}" aria-hidden="true"></i>`;
+            navigation.classList.toggle('is-open', !isOpen);
+        });
 
-        function update(){
-            filled.style.width = `${((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)}%`
-            requestAnimationFrame(update);
+        navigation.addEventListener('click', event => {
+            if (event.target.closest('a')) closeNavigation();
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeNavigation();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeNavigation();
+        });
+
+        const tabLinks = document.querySelectorAll('.tab-links');
+        const tabContents = document.querySelectorAll('.tab-contents');
+
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabLinks.forEach(link => {
+                    const selected = link === tab;
+                    link.classList.toggle('active-link', selected);
+                    link.setAttribute('aria-selected', String(selected));
+                });
+
+                tabContents.forEach(panel => {
+                    const selected = panel.id === tab.getAttribute('aria-controls');
+                    panel.classList.toggle('active-tab', selected);
+                    panel.hidden = !selected;
+                });
+            });
+        });
+
+        const filled = document.querySelector('.filled');
+
+        function updateProgress() {
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+            filled.style.width = `${Math.min(100, Math.max(0, progress))}%`;
         }
-        update();
 
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz8JquJr-EBF4WZkMFCGiI6-2HcfSy6G9kU3dgWYnGv0QlrsE0rKZKR8ntfKt-2Un5E/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz8JquJr-EBF4WZkMFCGiI6-2HcfSy6G9kU3dgWYnGv0QlrsE0rKZKR8ntfKt-2Un5E/exec';
+        const form = document.forms['contact-form'];
+        const formStatus = form.querySelector('.form-status');
+        const submitButton = form.querySelector('[type="submit"]');
 
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            submitButton.disabled = true;
+            formStatus.textContent = 'Sending...';
 
-        const form = document.forms['contact-form']
+            try {
+                const response = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
+                if (!response.ok) throw new Error('The message could not be sent. Please try again.');
+                formStatus.textContent = 'Thank you! Your message has been sent.';
+                form.reset();
+            } catch (error) {
+                formStatus.textContent = error.message || 'The message could not be sent. Please try again.';
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
 
-
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => alert("Thank you! your form is submitted successfully." ))
-        .then(() => { window.location.reload(); })
-        .catch(error => console.error('Error!', error.message))
-        })
 
     </script>
 </body>
