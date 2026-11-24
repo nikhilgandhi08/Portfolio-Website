@@ -34,7 +34,7 @@
     <section class="home">
         <div class="home-content">
             <h1>Hi, I'm Nikhil Gandhi</h1>
-            <h3>FullStack Developer</h3>
+            <h3>.NET Full Stack Developer</h3>
             
             
             <!-- <div class="btn-box">
@@ -56,10 +56,10 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>Software Engineering Enthusiast | Passionate Problem Solver <br><br>
-                        Final-year Computer Engineering student with a solid foundation in coding and a strong passion for Data
-                        Structures and Algorithms (DSA). Eager to tackle challenges and explore new technologies, particularly in web
-                        development. Open to connecting and discussing tech opportunities and insights.
+                    <p>I’m <strong>Nikhil Gandhi</strong>, a <strong>.NET Full Stack Developer</strong> based in Pune, India.<br><br>
+                        At <strong>LTM</strong>, I build and maintain enterprise-grade web applications and microservices using
+                        <strong>ASP.NET Core, Angular, C#, and MongoDB</strong>. I’m passionate about clean architecture and
+                        performance optimization, and I’m always eager to connect, collaborate, and take on the next engineering challenge.
                     </p>
                     <div class="tab-titles" role="tablist" aria-label="About information">
                         <button class="tab-links active-link" id="skills-tab" type="button" role="tab" aria-selected="true" aria-controls="skills">Skills</button>
@@ -68,14 +68,14 @@
                     </div>
                     <div class="tab-contents active-tab" id="skills" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
                         <ul>
-                            <li><span>Front-end</span><br>Figma, HTML, CSS, Bootstrap, JavaScript</li>
-                            <li><span>Programming Languages</span><br>C, Java, MySQL, Python</li>
-                            <li><span>Databases</span><br>SQL, MongoDB</li>
+                            <li><span>Front-end</span><br>Angular, HTML, CSS, JavaScript, Bootstrap, TypeScript</li>
+                            <li><span>Back-end</span><br>ASP.NET Core, C#, REST APIs, Microservices</li>
+                            <li><span>Databases</span><br>MongoDB, SQL</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience" role="tabpanel" aria-labelledby="experience-tab" tabindex="0" hidden>
                         <ul>
-                            <li><span>Cloud Intern (12/2023 - 01/2024)</span><br>Developed a strong foundation in Cloud Services, deploying VMs and managing resources on Microsoft Azure, along with hands-on experience in Power BI for data visualization.</li>
+                            <li><span>.NET Full Stack Developer | LTM (Aug 2025 - Present)</span><br>Build and maintain enterprise-grade web applications and microservices using ASP.NET Core, Angular, C#, and MongoDB, with a focus on clean architecture and performance optimization.</li>
                             
                         </ul>
                     </div>
@@ -97,35 +97,31 @@
     <div class="service-cards">
         <div class="service-card">
             <div class="service-icon">
-                <!-- Icon for service 1 -->
                 <i class="bx bx-code"></i>
             </div>
-            <h3>Web Development</h3>
-            <p class="service-description">Creating beautiful and responsive websites tailored to your needs.</p>
+            <h3>Enterprise Web Applications</h3>
+            <p class="service-description">Developing and maintaining scalable web applications.</p>
         </div>
         <div class="service-card">
             <div class="service-icon">
-                <!-- Icon for service 2 -->
                 <i class="bx bx-server"></i>
             </div>
-            <h3>Backend Development</h3>
-            <p class="service-description">Building robust and scalable server-side solutions.</p>
+            <h3>Microservices Development</h3>
+            <p class="service-description">Building reliable ASP.NET Core microservices.</p>
         </div>
         <div class="service-card">
             <div class="service-icon">
-                <!-- Icon for service 3 -->
                 <i class="bx bx-paint"></i>
             </div>
-            <h3>UI/UX <br> Design</h3>
-            <p class="service-description">Designing intuitive and user-friendly interfaces for a seamless experience.</p>
+            <h3>Angular Development</h3>
+            <p class="service-description">Creating responsive and maintainable front-end applications.</p>
         </div>
         <div class="service-card">
             <div class="service-icon">
-                <!-- Icon for Power BI -->
-                <i class="bx bx-bar-chart-square"></i>
+                <i class="bx bx-data"></i>
             </div>
-            <h3>Data Visualization</h3>
-            <p class="service-description">Creating insightful and interactive data visualizations using Power BI.</p>
+            <h3>Database Solutions</h3>
+            <p class="service-description">Designing efficient MongoDB and SQL data models.</p>
         </div>
     </div>
 </section>
@@ -244,7 +240,7 @@
 
     <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 Nikhil Santosh Gandhi | Full-Stack Developer <br> Pune, India</p>
+        <p>&copy; <span id="copyright-year"></span> Nikhil Santosh Gandhi | .NET Full Stack Developer <br> Pune, India</p>
 
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/nikhil-gandhi-41016a250/"><i class='bx bxl-linkedin-square' ></i></a>
@@ -254,6 +250,8 @@
             
         </div>
     </footer>
+
+    <script src="portfolio.js"></script>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
